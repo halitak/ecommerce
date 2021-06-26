@@ -1,7 +1,10 @@
 <script>
 import { mapActions } from 'vuex'
+import Product from '@/components/Product.vue'
+import Loading from '@/components/Loading.vue'
 export default {
-  name: 'Products',
+  name: 'ProductList',
+  components: { Product, Loading },
   data() {
     return {
       loading: true,
@@ -74,19 +77,20 @@ export default {
 </script>
 
 <template lang="pug">
-.users
+.productList
   h1 Product List
-  p(v-if='loading') Please wait...
+  p(v-if='loading')
+    Loading
   p(v-else-if='error.error') {{ error }}
   div(v-else)
     p There are {{ products.length }} products
     ul
       li(v-for='product in products')
-        a(:href='`/products/${product._id}`') {{ product.name }}
+        Product(:id='`${product._id}`', :name='`${product.name}`')
 </template>
 
-<style lang="scss" scoped>
-.products ul {
+<style lang="postcss" scoped>
+.productList ul {
   list-style: none;
 }
 </style>

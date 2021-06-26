@@ -1,10 +1,10 @@
 <script>
-import Products from '../components/Products.vue'
+import ProductList from '../components/ProductList.vue'
 import ProductFilter from '../components/ProductFilter.vue'
 export default {
   name: 'ProductsView',
   components: {
-    Products,
+    ProductList,
     ProductFilter
   }
 }
@@ -13,7 +13,7 @@ export default {
 <template lang="pug">
 .products
   ProductFilter
-  Products
+  ProductList
 </template>
 
 <style lang="postcss" scoped>
